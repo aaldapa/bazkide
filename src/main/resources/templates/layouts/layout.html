@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        th:fragment="layout(title, content, pageScripts, menuItemsActive)"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+
+        <title>BAZKIDE - <th:block th:insert="${title}"> </title>
+
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+        <!-- Para CSS, si Webpack genera CSS separado -->
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+
+    </head>
+
+    <body  class="layout-fluid">
+
+        <div class="page">
+
+            <aside th:replace="fragments/layout :: sidebar"></aside>
+
+            <div class="page-wrapper"  th:with="pretitle=${#strings.arraySplit(title,',')[0]}, title=${#strings.arraySplit(title,',')[1]}">
+
+                <!-- BEGIN PAGE HEADER -->
+                <div th:replace="fragments/layout :: page-header(${pretitle},${title})"></div>
+                <!-- END PAGE HEADER -->
+
+                <!-- BEGIN PAGE BODY -->
+                <div class="page-body" th:insert="${content}"></div>
+                <!-- END PAGE BODY -->
+
+                <!--  BEGIN FOOTER  -->
+                <footer th:replace="fragments/layout :: footer"></footer>
+                <!--  END FOOTER  -->
+            </div>
+
+        </div>
+
+        <!-- tu contenido aquí -->
+        <script th:src="@{/js/main.js}"></script>
+        <th:block th:replace="${pageScripts}"></th:block>
+
+    </body>
+
+</html>

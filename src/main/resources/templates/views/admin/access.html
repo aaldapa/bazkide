@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/layout :: layout(
+      title=~{::title/text()},
+      content=~{::section},
+      pageScripts=~{::script},
+      menuItemsActive=${menuItemsActive})}">
+
+    <head>
+        <title>Administracion,Accessos</title>
+    </head>
+    <body>
+        <section>
+            <div class="container-xl">
+                <div class="row row-deck row-cards">
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row gy-3">
+                                    <div class="col-12 col-sm d-flex flex-column">
+                                        <h3 class="h2" >
+                                            Estás en la Pantalla de administracion de accesos
+                                        </h3>
+
+                                        <input id="filtroNombre" type="text" placeholder="Buscar usuario..."/>
+                                        <button id="buscarUsuario">Buscar</button>
+
+                                        <ul id="listaUsuarios"></ul>
+
+                                        <form>
+                                            <input type="text" placeholder="Nombre usuario" />
+                                            <button id="guardarUsuario">Guardar</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- tu contenido aquí -->
+        <script type="module" th:src="@{/js/admin/access/index.js}"></script>
+
+    </body>
+</html>

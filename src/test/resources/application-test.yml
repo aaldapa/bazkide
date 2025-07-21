@@ -1,0 +1,20 @@
+DATASOURCE_URL: jdbc:h2:mem:testdb;MODE=PostgreSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE;;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+DATASOURCE_USER:
+DATASOURCE_PASS:
+DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+
+JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+JPA_HIBERNATE_DDL_AUTO: none
+JPA_PROPERTIES_SHOW_SQL: true
+JPA_PROPERTIES_USE_SQL_COMMENTS: true
+JPA_PROPERTIES_FORMAT_SQL: true
+
+LIQUIBASE_ENABLED: false
+
+spring:
+  jpa:
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console

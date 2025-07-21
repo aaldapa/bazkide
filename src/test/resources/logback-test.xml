@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <springProperty scope="context" name="appName" source="spring.application.name"/>
+
+    <springProfile name="test">
+        <!-- Configuración del appender de consola -->
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <!-- Patrón del log -->
+                <pattern>TEST -> %d{yyyy-MM-dd_HH:mm:ss.SSS} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <!-- Definir el nivel de log por defecto -->
+        <root level="INFO">
+            <appender-ref ref="console"/>
+        </root>
+
+        <logger name="org.springframework.web" level="DEBUG"/>
+    </springProfile>
+</configuration>

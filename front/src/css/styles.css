@@ -1,0 +1,6 @@
+/* Sobre escribir el tipo de letra*/
+html, body { font-family: "Inter", "system-ui"; }
+
+@supports (font-variation-settings: normal) {
+  html, body { font-family: "InterVariable", "system-ui"; } /* If using the variable font */
+}

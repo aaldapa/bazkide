@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /bazkide
+logging:
+  level:
+    org.springframework: DEBUG
+    eus.euskolorak.bazkide: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+spring:
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  liquibase:
+    enabled: true
+  datasource:
+    url: jdbc:sqlite:database.sqlite?foreign_keys=on
+    driver-class-name: org.sqlite.JDBC
+    username: sa
+    password:
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    generate-statistics: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  resources:
+    cache:
+      period: 0
+
