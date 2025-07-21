@@ -1,0 +1,2 @@
+# bazkide
+Registro de socios
